@@ -42,7 +42,8 @@
     "test": "cross-env NODE_ENV=test jest --coverage",
     "test:watch": "cross-env NODE_ENV=test jest --watchAll",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
-    "prettify": "prettier --write"
+    "prettify": "prettier --write",
+    "test:new": "jest --watchAll"
   },
   "lint-staged": {
     "*.js": [
@@ -79,6 +80,7 @@
     "react": "16.6.0",
     "react-dom": "16.6.0",
     "react-helmet": "5.2.0",
+    "react-icons": "^3.2.2",
     "react-intl": "2.7.2",
     "react-redux": "5.0.7",
     "react-router-dom": "4.3.1",
