@@ -44,6 +44,11 @@ const StyledComponents = styled.div`
 
 /* eslint-disable react/prefer-stateless-function */
 class GuestLanding extends React.Component {
+  renderForm() {
+    const { children } = this.props
+    return children
+  }
+
   render() {
     return (
       <StyledComponents>
@@ -55,7 +60,9 @@ class GuestLanding extends React.Component {
             <img src={GamicoImage}/>
           </div>
         </div>
-        <div className="right"></div>
+        <div className="right">
+          { this.renderForm() }
+        </div>
       </StyledComponents>
     )
   }
