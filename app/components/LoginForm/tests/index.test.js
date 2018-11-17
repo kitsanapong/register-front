@@ -1,11 +1,20 @@
-// import React from 'react';
-// import { mount } from 'enzyme';
+import React from 'react';
+import { shallow } from 'enzyme';
 // import { enzymeFind } from 'styled-components/test-utils';
 
-// import LoginForm from '../index';
+import LoginForm from '../index';
 
 describe('<LoginForm />', () => {
-  it('Expect to have unit tests specified', () => {
-    expect(true).toEqual(false);
+  it('have username input', () => {
+    const wrapper = shallow(
+      <LoginForm />
+    )
+    expect(wrapper.find('#username').length).toEqual(1)
+  });
+  it('have password input', () => {
+    const wrapper = shallow(
+      <LoginForm />
+    )
+    expect(wrapper.find('#password').length).toEqual(1)
   });
 });
