@@ -6,12 +6,18 @@
 
 import React from 'react';
 // import PropTypes from 'prop-types';
-// import styled from 'styled-components';
+import styled from 'styled-components';
+
+const StyledComponents = styled.div``
 
 /* eslint-disable react/prefer-stateless-function */
 class GuestLanding extends React.Component {
   render() {
-    return <div />;
+    return (
+      <StyledComponents>
+        This is GuestLanding
+      </StyledComponents>
+    )
   }
 }
 

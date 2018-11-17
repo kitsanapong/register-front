@@ -10,6 +10,8 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 
+import GuestLanding from 'components/GuestLanding'
+
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
 import makeSelectLoginPage from './selectors';
@@ -19,7 +21,11 @@ import saga from './saga';
 /* eslint-disable react/prefer-stateless-function */
 export class LoginPage extends React.Component {
   render() {
-    return <div>This is Login Page</div>;
+    return (
+      <div>
+        <GuestLanding />
+      </div>
+    )
   }
 }
 
