@@ -11,7 +11,23 @@ import styled from 'styled-components';
 import GamicoIcon from 'images/gamico.jpg'
 
 const StyledCompoent = styled.div`
-
+  padding: 24px;
+  .header {
+    .icon-wrapper {
+      display: flex;
+      justify-content: center;
+      height: 100px;
+      img {
+        width: 100px;
+        border-radius: 50%;
+      }
+    }
+    .text {
+      .text-highlight {
+        color: #EE2D60;
+      }
+    }
+  }
 `
 
 /* eslint-disable react/prefer-stateless-function */
@@ -22,9 +38,6 @@ class LoginForm extends React.Component {
         <div className="header">
           <div className="icon-wrapper">
             <img src={GamicoIcon} />
-          </div>
-          <div className="text">
-            COMPETE MORE WIN MORE ACHIEVE MORE
           </div>
         </div>
         <div className="input-wrapper">
