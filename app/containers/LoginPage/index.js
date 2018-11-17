@@ -19,7 +19,7 @@ import saga from './saga';
 /* eslint-disable react/prefer-stateless-function */
 export class LoginPage extends React.Component {
   render() {
-    return <div />;
+    return <div>This is Login Page</div>;
   }
 }
 
