@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
+import styled from 'styled-components'
 
 import GuestLanding from 'components/GuestLanding'
 
@@ -18,13 +19,22 @@ import makeSelectLoginPage from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 
+const StyledComponent = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  // background-color: #EE2D60;
+`
+
 /* eslint-disable react/prefer-stateless-function */
 export class LoginPage extends React.Component {
   render() {
     return (
-      <div>
+      <StyledComponent>
         <GuestLanding />
-      </div>
+      </StyledComponent>
     )
   }
 }
