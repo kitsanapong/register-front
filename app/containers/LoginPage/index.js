@@ -12,6 +12,7 @@ import { compose } from 'redux';
 import styled from 'styled-components'
 
 import GuestLanding from 'components/GuestLanding'
+import LoginForm from 'components/LoginForm'
 
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
@@ -33,7 +34,9 @@ export class LoginPage extends React.Component {
   render() {
     return (
       <StyledComponent>
-        <GuestLanding />
+        <GuestLanding>
+          <LoginForm />
+        </GuestLanding>
       </StyledComponent>
     )
   }
