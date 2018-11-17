@@ -14,6 +14,10 @@ import TextInput from 'components/TextInput'
 
 const StyledCompoent = styled.div`
   padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
   .header {
     .icon-wrapper {
       display: flex;
