@@ -10,6 +10,8 @@ import styled from 'styled-components';
 
 import GamicoIcon from 'images/gamico.jpg'
 
+import TextInput from 'components/TextInput'
+
 const StyledCompoent = styled.div`
   padding: 24px;
   .header {
@@ -41,7 +43,7 @@ class LoginForm extends React.Component {
           </div>
         </div>
         <div className="input-wrapper">
-          <input id="username" type="text" value="Kitsanapong.r@gmail.com" />
+          <TextInput />
           <input id="password" type="password" value="zzzzzzzzzz" />
         </div>
         <div className="button-wrapper">
