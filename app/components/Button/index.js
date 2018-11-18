@@ -5,7 +5,7 @@
  */
 
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const StyledComponents = styled.div`
@@ -33,12 +33,14 @@ class Button extends React.Component {
   render() {
     return (
       <StyledComponents>
-        LOGIN
+        { this.props.label }
       </StyledComponents>
     )
   }
 }
 
-Button.propTypes = {};
+Button.propTypes = {
+  label: PropTypes.string,
+};
 
 export default Button;
