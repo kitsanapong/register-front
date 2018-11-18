@@ -12,6 +12,7 @@ import { MdEmail, MdVpnKey } from 'react-icons/md'
 import GamicoIcon from 'images/gamico.jpg'
 
 import TextInput from 'components/TextInput'
+import Button from 'components/Button'
 
 const StyledCompoent = styled.div`
   padding: 42px;
@@ -61,7 +62,7 @@ class LoginForm extends React.Component {
           />
         </div>
         <div className="button-wrapper">
-          <button>Login</button>
+          <Button label="LOGIN" />
         </div>
         <div className="register-wrapper">
           <div className="text">
