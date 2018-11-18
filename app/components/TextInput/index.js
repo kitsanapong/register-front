@@ -5,7 +5,7 @@
  */
 
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { MdEmail } from 'react-icons/md'
 
@@ -16,18 +16,28 @@ const StyledComponents = styled.div`
   flex-direction: row;
   align-items: center;
   position: relative;
-  border-bottom: 2px solid #EE2D60;
+  border-bottom: 2px solid #E0E0E0;
+  &.active {
+    border-bottom: 2px solid #EE2D60;
+    .icon-wrapper > svg {
+      color: #EE2D60;
+    }
+    input {
+      color: #EE2D60;
+    }
+  }
   .icon-wrapper {
     display: flex;
     align-items: center;
     margin-right: 6px;
     svg {
-      color: #EE2D60;
+      color: #E0E0E0;
       width: 20px;
       height: 20px;
     }
   }
   input {
+    color: #E0E0E0;
     width: 100%;
     outline-style: none;
   }
@@ -35,18 +45,66 @@ const StyledComponents = styled.div`
 
 /* eslint-disable react/prefer-stateless-function */
 class TextInput extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      active: this.props.active,
+    }
+  }
+
+  componentDidMount() {
+    this.focusInput()
+  }
+
+  focusInput() {
+    if (this.input && this.props.active === true) {
+      this.input.focus()
+    }
+  }
+
+  getClassName() {
+    const { active } = this.state
+    let className = ''
+    className += active === true ? ' active' : ''
+    return className
+  }
+
+  handleOnFocus() {
+    this.setState({
+      active: true,
+    })
+  }
+
+  handleOnBlue() {
+    this.setState({
+      active: false,
+    })
+  }
+
   render() {
     return (
-      <StyledComponents>
+      <StyledComponents className={this.getClassName()}>
         <div className="icon-wrapper">
           <MdEmail />
         </div>
-        <input type="text" value="Kitsanapong.r@gmail.com" />
+        <input
+          id="input"
+          ref={(input) => { this.input = input }}
+          type="text"
+          onFocus={() => { this.handleOnFocus() }}
+          onBlur={() => { this.handleOnBlue() }}
+        />
       </StyledComponents>
     )
   }
 }
 
-TextInput.propTypes = {};
+TextInput.propTypes = {
+  active: PropTypes.bool,
+};
+
+TextInput.defaultProps = {
+  active: false,
+}
 
 export default TextInput;
