@@ -36,6 +36,21 @@ const StyledCompoent = styled.div`
       }
     }
   }
+  .register-wrapper {
+    text-align: center;
+    .text {
+      font-size: 14px;
+      opacity: 0.54;
+    }
+    .highlight {
+      margin-left: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      color: black;
+      opacity: 1;
+      font-weight: bold;
+    }
+  }
 `
 
 /* eslint-disable react/prefer-stateless-function */
@@ -65,10 +80,8 @@ class LoginForm extends React.Component {
           <Button label="LOGIN" />
         </div>
         <div className="register-wrapper">
-          <div className="text">
-            Don't have an account?
-            <span>Sign up</span>
-          </div>
+          <span className="text">Don't have an account?</span>
+          <span className="highlight">Sign up</span>
         </div>
       </StyledCompoent>
     )
