@@ -23,4 +23,11 @@ describe('<TextInput />', () => {
     )
     expect(wrapper.hasClass('active')).toEqual(false)
   })
+  it('have render icon', () => {
+    const icon = <div>this is icon</div>
+    const wrapper = shallow(
+      <TextInput icon={icon} />
+    )
+    expect(wrapper.containsMatchingElement(icon)).toEqual(true)
+  })
 });

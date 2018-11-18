@@ -47,7 +47,7 @@ class LoginForm extends React.Component {
           </div>
         </div>
         <div className="input-wrapper">
-          <TextInput />
+          <TextInput active={true} />
           <input id="password" type="password" value="zzzzzzzzzz" />
         </div>
         <div className="button-wrapper">

@@ -81,11 +81,15 @@ class TextInput extends React.Component {
     })
   }
 
+  renderIcon() {
+    return this.props.icon
+  }
+
   render() {
     return (
       <StyledComponents className={this.getClassName()}>
         <div className="icon-wrapper">
-          <MdEmail />
+          { this.renderIcon() }
         </div>
         <input
           id="input"
@@ -101,6 +105,7 @@ class TextInput extends React.Component {
 
 TextInput.propTypes = {
   active: PropTypes.bool,
+  icon: PropTypes.node,
 };
 
 TextInput.defaultProps = {
