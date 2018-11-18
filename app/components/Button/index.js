@@ -6,12 +6,36 @@
 
 import React from 'react';
 // import PropTypes from 'prop-types';
-// import styled from 'styled-components';
+import styled from 'styled-components';
+
+const StyledComponents = styled.div`
+  width: 100%;
+  background-color: #EE2D60;
+  padding: 6px 16px;
+  color: white;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 10px, rgba(0, 0, 0, 0.23) 0px 3px 10px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.3s;
+  :hover {
+    background-color: #f26389;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 30px, rgba(0, 0, 0, 0.23) 0px 6px 10px;
+  }
+`
 
 /* eslint-disable react/prefer-stateless-function */
 class Button extends React.Component {
   render() {
-    return <div />;
+    return (
+      <StyledComponents>
+        LOGIN
+      </StyledComponents>
+    )
   }
 }
 
