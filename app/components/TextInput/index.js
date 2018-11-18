@@ -11,11 +11,12 @@ import styled from 'styled-components';
 const StyledComponents = styled.div`
   width: 100%;
   height: 36px;
+  margin-bottom: 24px;
   display: flex;
   flex-direction: row;
   align-items: center;
   position: relative;
-  border-bottom: 2px solid #E0E0E0;
+  border-bottom: 2px solid #BDBDBD;
   &.active {
     border-bottom: 2px solid #EE2D60;
     .icon-wrapper > svg {
@@ -30,13 +31,13 @@ const StyledComponents = styled.div`
     align-items: center;
     margin-right: 6px;
     svg {
-      color: #E0E0E0;
+      color: #BDBDBD;
       width: 20px;
       height: 20px;
     }
   }
   input {
-    color: #E0E0E0;
+    color: #BDBDBD;
     width: 100%;
     outline-style: none;
   }
