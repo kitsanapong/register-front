@@ -7,13 +7,14 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { MdEmail, MdVpnKey } from 'react-icons/md'
 
 import GamicoIcon from 'images/gamico.jpg'
 
 import TextInput from 'components/TextInput'
 
 const StyledCompoent = styled.div`
-  padding: 24px;
+  padding: 42px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -47,8 +48,17 @@ class LoginForm extends React.Component {
           </div>
         </div>
         <div className="input-wrapper">
-          <TextInput active={true} />
-          <input id="password" type="password" value="zzzzzzzzzz" />
+          <TextInput
+            active={true}
+            icon={<MdEmail />}
+            placeholder="Email"
+            type="text"
+          />
+          <TextInput
+            icon={<MdVpnKey />}
+            placeholder="Password"
+            type="password"
+          />
         </div>
         <div className="button-wrapper">
           <button>Login</button>
