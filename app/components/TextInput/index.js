@@ -7,7 +7,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { MdEmail } from 'react-icons/md'
 
 const StyledComponents = styled.div`
   width: 100%;
@@ -97,6 +96,7 @@ class TextInput extends React.Component {
           type="text"
           onFocus={() => { this.handleOnFocus() }}
           onBlur={() => { this.handleOnBlue() }}
+          placeholder={this.props.placeholder}
         />
       </StyledComponents>
     )
@@ -106,6 +106,7 @@ class TextInput extends React.Component {
 TextInput.propTypes = {
   active: PropTypes.bool,
   icon: PropTypes.node,
+  placeholder: PropTypes.string,
 };
 
 TextInput.defaultProps = {

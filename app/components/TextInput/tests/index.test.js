@@ -30,4 +30,10 @@ describe('<TextInput />', () => {
     )
     expect(wrapper.containsMatchingElement(icon)).toEqual(true)
   })
+  it('have render palceholder props', () => {
+    const wrapper = shallow(
+      <TextInput placeholder="Hello" />
+    )
+    expect(wrapper.find('input').props().placeholder).toEqual('Hello')
+  })
 });
