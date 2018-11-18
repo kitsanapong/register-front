@@ -12,7 +12,7 @@ import BackdropImage from 'images/backdrop.png'
 import GamicoImage from 'images/gamico.jpg'
 
 const StyledComponents = styled.div`
-  width: 720px;
+  width: 800px;
   height: 480px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
   background-color: white;
