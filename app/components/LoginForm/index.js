@@ -15,7 +15,7 @@ import TextInput from 'components/TextInput'
 import Button from 'components/Button'
 
 const StyledCompoent = styled.div`
-  padding: 42px;
+  padding: 48px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -24,9 +24,9 @@ const StyledCompoent = styled.div`
     .icon-wrapper {
       display: flex;
       justify-content: center;
-      height: 100px;
+      height: 130px;
       img {
-        width: 100px;
+        width: 130px;
         border-radius: 50%;
       }
     }
