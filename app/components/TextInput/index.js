@@ -93,7 +93,7 @@ class TextInput extends React.Component {
         <input
           id="input"
           ref={(input) => { this.input = input }}
-          type="text"
+          type={this.props.type}
           onFocus={() => { this.handleOnFocus() }}
           onBlur={() => { this.handleOnBlue() }}
           placeholder={this.props.placeholder}
@@ -107,10 +107,12 @@ TextInput.propTypes = {
   active: PropTypes.bool,
   icon: PropTypes.node,
   placeholder: PropTypes.string,
+  type: PropTypes.oneOf(['text', 'password']),
 };
 
 TextInput.defaultProps = {
   active: false,
+  type: 'text',
 }
 
 export default TextInput;
