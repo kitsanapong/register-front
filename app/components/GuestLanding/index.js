@@ -30,15 +30,6 @@ const StyledComponents = styled.div`
         object-fit: cover;
       }
     }
-    .icon-wrapper {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      img {
-        width: 48px;
-        border-radius: 50%;
-      }
-    }
   }
 `
 
@@ -55,9 +46,6 @@ class GuestLanding extends React.Component {
         <div className="left">
           <div className="backdrop-wrapper">
             <img src={BackdropImage} />
-          </div>
-          <div className="icon-wrapper">
-            <img src={GamicoImage}/>
           </div>
         </div>
         <div className="right">
