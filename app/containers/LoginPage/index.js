@@ -13,6 +13,7 @@ import styled from 'styled-components'
 
 import GuestLanding from 'components/GuestLanding'
 import LoginForm from 'components/LoginForm'
+import RegisterForm from 'components/RegisterForm';
 
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
@@ -45,8 +46,8 @@ export class LoginPage extends React.Component {
     const { mode } = this.state
     if (mode === LOGIN_MODE) {
       return <LoginForm />
-    } else {
-      return <div>Register</div>
+    } else if (mode === REGISTER_MODE) {
+      return <RegisterForm />
     }
   }
 
