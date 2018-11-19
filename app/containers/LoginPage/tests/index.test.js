@@ -41,4 +41,11 @@ describe('<LoginPage />', () => {
     wrapper.instance().gotoLogin()
     expect(wrapper.instance().state.mode).toEqual('LOGIN_MODE')
   })
+  it('change mode to REGISTER_MODE when call gotoLogin', () => {
+    const wrapper = shallow(
+      <LoginPage />
+    )
+    wrapper.instance().gotoRegister()
+    expect(wrapper.instance().state.mode).toEqual('REGISTER_MODE')
+  })
 });
