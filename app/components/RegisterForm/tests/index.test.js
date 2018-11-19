@@ -35,4 +35,14 @@ describe('<RegisterForm />', () => {
     )
     expect(wrapper.find('#back-button').length).toEqual(1)
   })
+  it('call props.gotoLogin when click Back', () => {
+    const stub = jest.fn()
+    const wrapper = shallow(
+      <RegisterForm
+        gotoLogin={stub}
+      />
+    )
+    wrapper.find('#back-button').simulate('click')
+    expect(stub).toHaveBeenCalled()
+  })
 });

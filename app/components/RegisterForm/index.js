@@ -74,7 +74,7 @@ class RegisterForm extends React.Component {
           <span className="icon-wrapper">
             <MdKeyboardArrowLeft />
           </span>
-          <span id="back-button" className="text">Back</span>
+          <span id="back-button" className="text" onClick={() => { this.props.gotoLogin() }}>Back</span>
         </div>
       </StyledCompoent>
     )
