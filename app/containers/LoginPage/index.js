@@ -64,7 +64,12 @@ export class LoginPage extends React.Component {
         />
       )
     } else if (mode === REGISTER_MODE) {
-      return <RegisterForm id="register-form" />
+      return (
+        <RegisterForm
+          id="register-form"
+          gotoLogin={() => { this.gotoLogin() }}
+        />
+      )
     } else {
       return <LoginForm id="login-form" />
     }
