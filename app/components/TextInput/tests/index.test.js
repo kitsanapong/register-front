@@ -54,4 +54,18 @@ describe('<TextInput />', () => {
     )
     expect(wrapper.contains('this is info')).toEqual(true)
   })
+  it('call props.onChange when input change', () => {
+    const stub = jest.fn()
+    const wrapper = shallow(
+      <TextInput
+        onChange={stub}
+      />
+    )
+    wrapper.find('#input').simulate('change', {
+      target: {
+        value: 'Hello'
+      }
+    })
+    expect(stub).toHaveBeenCalled()
+  })
 });

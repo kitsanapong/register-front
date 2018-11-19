@@ -110,6 +110,7 @@ class TextInput extends React.Component {
           onFocus={() => { this.handleOnFocus() }}
           onBlur={() => { this.handleOnBlue() }}
           placeholder={this.props.placeholder}
+          onChange={this.props.onChange.bind(this)}
         />
         <div className="info-wrapper">
           <div id="info" className="text">{ this.props.info }</div>
@@ -125,12 +126,14 @@ TextInput.propTypes = {
   placeholder: PropTypes.string,
   type: PropTypes.oneOf(['text', 'password']),
   info: PropTypes.string,
+  onChange: PropTypes.func,
 };
 
 TextInput.defaultProps = {
   active: false,
   type: 'text',
   info: '',
+  onChange: () => {},
 }
 
 export default TextInput;
