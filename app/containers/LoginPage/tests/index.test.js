@@ -34,4 +34,11 @@ describe('<LoginPage />', () => {
     wrapper.instance().setState({ mode: 'XXXXXX' })
     expect(wrapper.find('#login-form').length).toEqual(1)
   })
+  it('change mode to LOGIN_MODE when call gotoLogin', () => {
+    const wrapper = shallow(
+      <LoginPage />
+    )
+    wrapper.instance().gotoLogin()
+    expect(wrapper.instance().state.mode).toEqual('LOGIN_MODE')
+  })
 });

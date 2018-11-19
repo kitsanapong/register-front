@@ -48,6 +48,12 @@ export class LoginPage extends React.Component {
     })
   }
 
+  gotoLogin() {
+    this.setState({
+      mode: LOGIN_MODE,
+    })
+  }
+
   renderForm() {
     const { mode } = this.state
     if (mode === LOGIN_MODE) {
