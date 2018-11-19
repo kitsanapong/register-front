@@ -46,7 +46,7 @@ const StyledCompoent = styled.div`
       margin-left: 6px;
       cursor: pointer;
       font-size: 14px;
-      color: black;
+      color: rgb(24,21,37);
       opacity: 1;
       font-weight: bold;
     }
