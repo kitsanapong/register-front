@@ -20,10 +20,18 @@ describe('<LoginPage />', () => {
     wrapper.instance().setState({ mode: 'LOGIN_MODE' })
     expect(wrapper.containsMatchingElement(<LoginForm />)).toEqual(true)
   })
-  it('render LoginForm when mode is REGISTER_MODE', () => {
+  it('render RegisterForm when mode is REGISTER_MODE', () => {
     const wrapper = shallow(
       <LoginPage />
     )
     wrapper.instance().setState({ mode: 'REGISTER_MODE' })
-    expect(wrapper.containsMatchingElement(<RegisterForm />)).toEqual(true)  })
+    expect(wrapper.containsMatchingElement(<RegisterForm />)).toEqual(true)
+  })
+  it('render LoginForm when mode by defalt', () => {
+    const wrapper = shallow(
+      <LoginPage />
+    )
+    wrapper.instance().setState({ mode: 'XXXXXX' })
+    expect(wrapper.containsMatchingElement(<LoginForm />)).toEqual(true)
+  })
 });

@@ -48,6 +48,8 @@ export class LoginPage extends React.Component {
       return <LoginForm />
     } else if (mode === REGISTER_MODE) {
       return <RegisterForm />
+    } else {
+      return <LoginForm />
     }
   }
 
