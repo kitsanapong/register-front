@@ -53,13 +53,14 @@ export class LoginPage extends React.Component {
     if (mode === LOGIN_MODE) {
       return (
         <LoginForm
+          id="login-form"
           gotoRegister={() => { this.gotoRegister() }}
         />
       )
     } else if (mode === REGISTER_MODE) {
-      return <RegisterForm />
+      return <RegisterForm id="register-form" />
     } else {
-      return <LoginForm />
+      return <LoginForm id="login-form" />
     }
   }
 
