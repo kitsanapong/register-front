@@ -66,4 +66,18 @@ describe('<RegisterForm />', () => {
     expect(wrapper.instance().isUsernameValid('1111111111aaaaaaaaaa')).toEqual(true)
     expect(wrapper.instance().isUsernameValid('1111111111111111111aa')).toEqual(false)
   })
+  it('Email must be syntactically correct and not longer than 50 characters', () => {
+    const wrapper = shallow(
+      <RegisterForm />
+    )
+    expect(wrapper.instance().isEmailValid('email@mail.com')).toEqual(true)
+    expect(wrapper.instance().isEmailValid('@mail.com')).toEqual(false)
+    expect(wrapper.instance().isEmailValid('email@.com')).toEqual(false)
+    expect(wrapper.instance().isEmailValid('email@mail.xx')).toEqual(true)
+    expect(wrapper.instance().isEmailValid('email@mail.')).toEqual(false)
+    expect(wrapper.instance().isEmailValid('emailmail.xx')).toEqual(false)
+    expect(wrapper.instance().isEmailValid('ema@il@mail.com')).toEqual(false)
+    expect(wrapper.instance().isEmailValid('email111111111111111111111111111111111111@mail.com')).toEqual(true)
+    expect(wrapper.instance().isEmailValid('email111111111111111111111111111111111111111@mail.com')).toEqual(false)
+  })
 });

@@ -65,6 +65,12 @@ class RegisterForm extends React.Component {
     return usernameRegx.test(input)
   }
 
+  isEmailValid(input) {
+    const emailRegx = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
+    const lengthLimit = input.length >= 1 && input.length <= 50
+    return emailRegx.test(input) && lengthLimit
+  }
+
   render() {
     return (
       <StyledCompoent>
