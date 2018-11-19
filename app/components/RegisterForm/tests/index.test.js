@@ -29,4 +29,10 @@ describe('<RegisterForm />', () => {
     )
     expect(wrapper.find('#submit-button').length).toEqual(1)
   })
+  it('have Back button', () => {
+    const wrapper = shallow(
+      <RegisterForm />
+    )
+    expect(wrapper.find('#back-button').length).toEqual(1)
+  })
 });

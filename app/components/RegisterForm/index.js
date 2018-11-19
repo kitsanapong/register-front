@@ -7,7 +7,7 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { MdEmail, MdVpnKey, MdPerson } from 'react-icons/md'
+import { MdEmail, MdVpnKey, MdPerson, MdKeyboardArrowLeft} from 'react-icons/md'
 
 import TextInput from 'components/TextInput'
 import Button from 'components/Button'
@@ -18,19 +18,14 @@ const StyledCompoent = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  .register-wrapper {
+  .back-wrapper {
     text-align: center;
     .text {
       font-size: 14px;
       opacity: 0.54;
     }
-    .highlight {
-      margin-left: 6px;
-      cursor: pointer;
-      font-size: 14px;
-      color: rgb(24,21,37);
-      opacity: 1;
-      font-weight: bold;
+    svg {
+      opacity: 0.54;
     }
   }
 `
@@ -64,11 +59,13 @@ class RegisterForm extends React.Component {
           />
         </div>
         <div className="button-wrapper">
-          <Button id="submit-button" label="LOGIN" />
+          <Button id="submit-button" label="REGISTER" />
         </div>
-        <div className="register-wrapper">
-          <span className="text">Don't have an account?</span>
-          <span className="highlight">Sign up</span>
+        <div className="back-wrapper">
+          <span className="icon-wrapper">
+            <MdKeyboardArrowLeft />
+          </span>
+          <span id="back-button" className="text">Back</span>
         </div>
       </StyledCompoent>
     )
