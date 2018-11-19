@@ -11,6 +11,12 @@ describe('<TextInput />', () => {
     )
     expect(wrapper.find('#input').length).toEqual(1)
   })
+  it('have info', () => {
+    const wrapper = shallow(
+      <TextInput />
+    )
+    expect(wrapper.find('#info').length).toEqual(1)
+  })
   it('have className active of props active is true', () => {
     const wrapper = shallow(
       <TextInput active={true}/>

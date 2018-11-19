@@ -38,7 +38,7 @@ export class LoginPage extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      mode: LOGIN_MODE,
+      mode: REGISTER_MODE,
     }
   }
 
