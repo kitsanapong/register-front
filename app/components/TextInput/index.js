@@ -112,7 +112,7 @@ class TextInput extends React.Component {
           placeholder={this.props.placeholder}
         />
         <div className="info-wrapper">
-          <div id="info" className="text">*Username must be alphanumeric with length of 4 - 20</div>
+          <div id="info" className="text">{ this.props.info }</div>
         </div>
       </StyledComponents>
     )
@@ -124,11 +124,13 @@ TextInput.propTypes = {
   icon: PropTypes.node,
   placeholder: PropTypes.string,
   type: PropTypes.oneOf(['text', 'password']),
+  info: PropTypes.string,
 };
 
 TextInput.defaultProps = {
   active: false,
   type: 'text',
+  info: '',
 }
 
 export default TextInput;

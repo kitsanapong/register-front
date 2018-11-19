@@ -48,4 +48,10 @@ describe('<TextInput />', () => {
     )
     expect(wrapper.find('input').props().type).toEqual('text')
   })
+  it('render info from props', () => {
+    const wrapper = shallow(
+      <TextInput info="this is info" />
+    )
+    expect(wrapper.contains('this is info')).toEqual(true)
+  })
 });
