@@ -43,23 +43,21 @@ class RegisterForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      usernameInput: '',
       usernameInfo: '',
+      emailInput: '',
       emailInfo: '',
+      passwordInput: '',
       passwordInfo: '',
     }
   }
 
   handleUsernameChange(e) {
     const input = e.target.value
-    if (!this.isUsernameValid(input)) {
-      this.setState({
-        usernameInfo: 'Username must be alphanumeric and with 4 - 20 of length',
-      })
-    } else {
-      this.setState({
-        usernameInfo: '',
-      })
-    }
+    this.setState({
+      usernameInput: input,
+      usernameInfo: this.isUsernameValid(input) ? '' : 'Username must be alphanumeric and with 4 - 20 of length'
+    })
   }
 
   isUsernameValid(input) {
