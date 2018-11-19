@@ -20,6 +20,9 @@ import makeSelectLoginPage from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 
+const LOGIN_MODE = 'LOGIN_MODE'
+const REGISTER_MODE = 'REGISTER_MODE'
+
 const StyledComponent = styled.div`
   display: flex;
   align-items: center;
@@ -31,6 +34,13 @@ const StyledComponent = styled.div`
 
 /* eslint-disable react/prefer-stateless-function */
 export class LoginPage extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      mode: LOGIN_MODE,
+    }
+  }
+
   render() {
     return (
       <StyledComponent>
