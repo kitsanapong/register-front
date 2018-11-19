@@ -101,6 +101,15 @@ class RegisterForm extends React.Component {
     return input.length >= 8 && input.length <= 20
   }
 
+  renderRegisterButton() {
+    return (
+      <Button
+        id="submit-button"
+        label="REGISTER"
+      />
+    )
+  }
+
   render() {
     return (
       <StyledCompoent>
@@ -136,7 +145,7 @@ class RegisterForm extends React.Component {
           />
         </div>
         <div className="button-wrapper">
-          <Button id="submit-button" label="REGISTER" />
+          { this.renderRegisterButton() }
         </div>
         <div className="back-wrapper">
           <span className="icon-wrapper">
