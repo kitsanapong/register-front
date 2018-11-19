@@ -25,9 +25,6 @@ const StyledComponents = styled.div`
     input {
       color: #EE2D60;
     }
-    .info-wrapper {
-      opacity: 1;
-    }
   }
   .icon-wrapper {
     display: flex;
@@ -47,7 +44,7 @@ const StyledComponents = styled.div`
   .info-wrapper {
     position: absolute;
     top: 38px;
-    opacity: 0;
+    opacity: 1;
     .text {
       font-size: 11px;
       color: red;
