@@ -51,7 +51,7 @@ class RegisterForm extends React.Component {
     const input = e.target.value
     if (!this.isUsernameValid(input)) {
       this.setState({
-        usernameInfo: 'Username must be alphanumeric and with length of 4 - 20',
+        usernameInfo: 'Username must be alphanumeric and with 4 - 20 of length',
       })
     } else {
       this.setState({
@@ -82,6 +82,19 @@ class RegisterForm extends React.Component {
     const emailRegx = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
     const lengthLimit = input.length >= 1 && input.length <= 50
     return emailRegx.test(input) && lengthLimit
+  }
+
+  handlePasswordChange(e) {
+    const input = e.target.value
+    if (!this.isPasswordValid(input)) {
+      this.setState({
+        passwordInfo: 'Password must have 8 - 20 of length',
+      })
+    } else {
+      this.setState({
+        passwordInfo: '',
+      })
+    }
   }
 
   isPasswordValid(input) {
@@ -118,6 +131,8 @@ class RegisterForm extends React.Component {
             icon={<MdVpnKey />}
             placeholder="Password"
             type="password"
+            onChange={(e) => { this.handlePasswordChange(e) }}
+            info={this.state.passwordInfo}
           />
         </div>
         <div className="button-wrapper">
