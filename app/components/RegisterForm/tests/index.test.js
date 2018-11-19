@@ -80,4 +80,13 @@ describe('<RegisterForm />', () => {
     expect(wrapper.instance().isEmailValid('email111111111111111111111111111111111111@mail.com')).toEqual(true)
     expect(wrapper.instance().isEmailValid('email111111111111111111111111111111111111111@mail.com')).toEqual(false)
   })
+  it('Password must be at least 8 characters long and not exceed 20 characters', () => {
+    const wrapper = shallow(
+      <RegisterForm />
+    )
+    expect(wrapper.instance().isPasswordValid('1111111')).toEqual(false)
+    expect(wrapper.instance().isPasswordValid('11111111')).toEqual(true)
+    expect(wrapper.instance().isPasswordValid('11111111111111111111')).toEqual(true)
+    expect(wrapper.instance().isPasswordValid('111111111111111111111')).toEqual(false)
+  })
 });

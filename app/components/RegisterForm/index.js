@@ -84,6 +84,10 @@ class RegisterForm extends React.Component {
     return emailRegx.test(input) && lengthLimit
   }
 
+  isPasswordValid(input) {
+    return input.length >= 8 && input.length <= 20
+  }
+
   render() {
     return (
       <StyledCompoent>
