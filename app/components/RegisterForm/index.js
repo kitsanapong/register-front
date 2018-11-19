@@ -48,9 +48,8 @@ class RegisterForm extends React.Component {
   }
 
   handleUsernameChange(e) {
-    const usernameRegx = /^([a-zA-Z0-9]){4,20}$/
     const input = e.target.value
-    if (usernameRegx.test(input) === false) {
+    if (!this.isUsernameValid(input)) {
       this.setState({
         usernameInfo: 'Username must be alphanumeric and with length of 4 - 20',
       })
@@ -59,6 +58,11 @@ class RegisterForm extends React.Component {
         usernameInfo: '',
       })
     }
+  }
+
+  isUsernameValid(input) {
+    const usernameRegx = /^([a-zA-Z0-9]){4,20}$/
+    return usernameRegx.test(input)
   }
 
   render() {
