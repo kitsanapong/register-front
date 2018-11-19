@@ -65,6 +65,19 @@ class RegisterForm extends React.Component {
     return usernameRegx.test(input)
   }
 
+  handleEmailChange(e) {
+    const input = e.target.value
+    if (!this.isEmailValid(input)) {
+      this.setState({
+        emailInfo: 'Email must be correct and not exceed 50 of length',
+      })
+    } else {
+      this.setState({
+        emailInfo: '',
+      })
+    }
+  }
+
   isEmailValid(input) {
     const emailRegx = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
     const lengthLimit = input.length >= 1 && input.length <= 50
@@ -93,6 +106,8 @@ class RegisterForm extends React.Component {
             icon={<MdEmail />}
             placeholder="Email"
             type="text"
+            onChange={(e) => { this.handleEmailChange(e) }}
+            info={this.state.emailInfo}
           />
           <TextInput
             id="password"
