@@ -92,10 +92,14 @@ class RegisterForm extends React.Component {
   }
 
   renderRegisterButton() {
+    const disabled = !this.isUsernameValid(this.state.usernameInput) 
+                    || !this.isEmailValid(this.state.emailInput)
+                    || !this.isPasswordValid(this.state.passwordInput)
     return (
       <Button
         id="submit-button"
         label="REGISTER"
+        disabled={disabled}
       />
     )
   }
