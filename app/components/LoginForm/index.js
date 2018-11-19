@@ -5,7 +5,7 @@
  */
 
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { MdEmail, MdVpnKey } from 'react-icons/md'
 
@@ -65,12 +65,14 @@ class LoginForm extends React.Component {
         </div>
         <div className="input-wrapper">
           <TextInput
+            id="username"
             active={true}
             icon={<MdEmail />}
             placeholder="Email"
             type="text"
           />
           <TextInput
+            id="password"
             icon={<MdVpnKey />}
             placeholder="Password"
             type="password"
@@ -81,13 +83,18 @@ class LoginForm extends React.Component {
         </div>
         <div className="register-wrapper">
           <span className="text">Don't have an account?</span>
-          <span className="highlight">Sign up</span>
+          <span id="go-register" className="highlight" onClick={() => { this.props.gotoRegister() }}>Sign up</span>
         </div>
       </StyledCompoent>
     )
   }
 }
 
-LoginForm.propTypes = {};
+LoginForm.propTypes = {
+  gotoRegister: PropTypes.func,
+};
 
+LoginForm.defaultProps = {
+  gotoRegister: () => {},
+}
 export default LoginForm;

@@ -17,4 +17,14 @@ describe('<LoginForm />', () => {
     )
     expect(wrapper.find('#password').length).toEqual(1)
   });
+  it('call props.gotoRegister when click Sign Up', () => {
+    const stub = jest.fn()
+    const wrapper = shallow(
+      <LoginForm
+        gotoRegister={stub}
+      />
+    )
+    wrapper.find('#go-register').simulate('click')
+    expect(stub).toHaveBeenCalled()
+  })
 });
