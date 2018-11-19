@@ -20,12 +20,14 @@ const StyledCompoent = styled.div`
   height: 100%;
   .back-wrapper {
     text-align: center;
+    width: 50px;
+    cursor: pointer;
+    opacity: 0.54;
+    :hover {
+      opacity: 1;
+    }
     .text {
       font-size: 14px;
-      opacity: 0.54;
-    }
-    svg {
-      opacity: 0.54;
     }
   }
 `
