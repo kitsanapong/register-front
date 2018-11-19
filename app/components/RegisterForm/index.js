@@ -44,6 +44,8 @@ class RegisterForm extends React.Component {
     super(props)
     this.state = {
       usernameInfo: '',
+      emailInfo: '',
+      passwordInfo: '',
     }
   }
 
