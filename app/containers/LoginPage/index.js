@@ -26,7 +26,7 @@ const StyledComponent = styled.div`
   justify-content: center;
   height: 100%;
   width: 100%;
-  // background-color: #EE2D60;
+  background-color: rgb(24,21,37);
 `
 
 /* eslint-disable react/prefer-stateless-function */
