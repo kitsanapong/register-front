@@ -22,6 +22,16 @@ const StyledComponents = styled.div`
   letter-spacing: 1px;
   cursor: pointer;
   transition: 0.3s;
+  &.disabled {
+    cursor: default;
+    background-color: rgb(229, 229, 229);
+    color: rgba(0, 0, 0, 0.3);
+    box-shadow: unset;
+    :hover {
+      background-color: rgb(229, 229, 229);
+      box-shadow: unset;
+    }
+  }
   :hover {
     background-color: #f26389;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 30px, rgba(0, 0, 0, 0.23) 0px 6px 10px;
@@ -30,9 +40,15 @@ const StyledComponents = styled.div`
 
 /* eslint-disable react/prefer-stateless-function */
 class Button extends React.Component {
+  getClassName() {
+    let className = ''
+    className += this.props.disabled ? ' disabled' : ''
+    return className
+  }
+
   render() {
     return (
-      <StyledComponents>
+      <StyledComponents className={this.getClassName()}>
         { this.props.label }
       </StyledComponents>
     )
@@ -41,6 +57,7 @@ class Button extends React.Component {
 
 Button.propTypes = {
   label: PropTypes.string,
+  disable: PropTypes.bool,
 };
 
 export default Button;
