@@ -38,14 +38,24 @@ export class LoginPage extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      mode: REGISTER_MODE,
+      mode: LOGIN_MODE,
     }
+  }
+
+  gotoRegister() {
+    this.setState({
+      mode: REGISTER_MODE,
+    })
   }
 
   renderForm() {
     const { mode } = this.state
     if (mode === LOGIN_MODE) {
-      return <LoginForm />
+      return (
+        <LoginForm
+          gotoRegister={() => { this.gotoRegister() }}
+        />
+      )
     } else if (mode === REGISTER_MODE) {
       return <RegisterForm />
     } else {
