@@ -67,15 +67,10 @@ class RegisterForm extends React.Component {
 
   handleEmailChange(e) {
     const input = e.target.value
-    if (!this.isEmailValid(input)) {
-      this.setState({
-        emailInfo: 'Email must be correct and not exceed 50 of length',
-      })
-    } else {
-      this.setState({
-        emailInfo: '',
-      })
-    }
+    this.setState({
+      emailInput: input,
+      emailInfo: this.isEmailValid(input) ? '' : 'Email must be correct and not exceed 50 of length',
+    })
   }
 
   isEmailValid(input) {
