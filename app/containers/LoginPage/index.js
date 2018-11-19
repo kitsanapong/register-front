@@ -41,11 +41,20 @@ export class LoginPage extends React.Component {
     }
   }
 
+  renderForm() {
+    const { mode } = this.state
+    if (mode === LOGIN_MODE) {
+      return <LoginForm />
+    } else {
+      return <div>Register</div>
+    }
+  }
+
   render() {
     return (
       <StyledComponent>
         <GuestLanding>
-          <LoginForm />
+          { this.renderForm() }
         </GuestLanding>
       </StyledComponent>
     )
