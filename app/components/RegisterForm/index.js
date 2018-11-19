@@ -81,15 +81,10 @@ class RegisterForm extends React.Component {
 
   handlePasswordChange(e) {
     const input = e.target.value
-    if (!this.isPasswordValid(input)) {
-      this.setState({
-        passwordInfo: 'Password must have 8 - 20 of length',
-      })
-    } else {
-      this.setState({
-        passwordInfo: '',
-      })
-    }
+    this.setState({
+      passwordInput: input,
+      passwordInfo: this.isPasswordValid(input) ? '' : 'Password must have 8 - 20 of length',
+    })
   }
 
   isPasswordValid(input) {
