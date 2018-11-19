@@ -50,7 +50,7 @@ const StyledComponents = styled.div`
     opacity: 0;
     .text {
       font-size: 11px;
-      color: #BDBDBD;
+      color: red;
     }
   }
 `
