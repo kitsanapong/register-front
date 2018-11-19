@@ -18,6 +18,12 @@ const StyledCompoent = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+  .header {
+    .title {
+      font-size: 30px;
+      text-align: center;
+    }
+  }
   .back-wrapper {
     text-align: center;
     width: 50px;
@@ -38,6 +44,7 @@ class RegisterForm extends React.Component {
     return (
       <StyledCompoent>
         <div className="header">
+          <div className="title">Create Gamico account</div>
         </div>
         <div className="input-wrapper">
           <TextInput
