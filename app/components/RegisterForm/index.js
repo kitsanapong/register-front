@@ -40,6 +40,27 @@ const StyledCompoent = styled.div`
 
 /* eslint-disable react/prefer-stateless-function */
 class RegisterForm extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      usernameInfo: '',
+    }
+  }
+
+  handleUsernameChange(e) {
+    const usernameRegx = /^([a-zA-Z0-9]){4,20}$/
+    const input = e.target.value
+    if (usernameRegx.test(input) === false) {
+      this.setState({
+        usernameInfo: 'Username must be alphanumeric and with length of 4 - 20',
+      })
+    } else {
+      this.setState({
+        usernameInfo: '',
+      })
+    }
+  }
+
   render() {
     return (
       <StyledCompoent>
@@ -48,11 +69,14 @@ class RegisterForm extends React.Component {
         </div>
         <div className="input-wrapper">
           <TextInput
+            ref={(input) => { this.username = input }}
             id="username"
             active={true}
             icon={<MdPerson />}
             placeholder="Username"
             type="text"
+            onChange={(e) => { this.handleUsernameChange(e) }}
+            info={this.state.usernameInfo}
           />
           <TextInput
             id="email"
