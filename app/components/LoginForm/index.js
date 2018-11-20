@@ -14,6 +14,8 @@ import GamicoIcon from 'images/gamico.jpg'
 import TextInput from 'components/TextInput'
 import Button from 'components/Button'
 
+import { isEmailValid, isPasswordValid } from 'utils/inputValidate'
+
 const StyledCompoent = styled.div`
   padding: 48px;
   display: flex;
@@ -59,7 +61,9 @@ class LoginForm extends React.Component {
     super(props)
     this.state = {
       emailInput: '',
+      emailInfo: '',
       passwordInput: '',
+      passwordInfo: '',
     }
   }
 
@@ -73,12 +77,14 @@ class LoginForm extends React.Component {
   handleEmailChange(e) {
     this.setState({
       emailInput: e.target.value,
+      emailInfo: isEmailValid(e.target.value) ? '' : 'Email must be correct and not exceed 50 of length',
     })
   }
 
   handlePasswordChange(e) {
     this.setState({
       passwordInput: e.target.value,
+      passwordInfo: isPasswordValid(e.target.value) ? '' : 'Password must have 8 - 20 of length',
     })
   }
   
@@ -98,6 +104,7 @@ class LoginForm extends React.Component {
             placeholder="Email"
             type="text"
             onChange={(e) => { this.handleEmailChange(e) }}
+            info={this.state.emailInfo}
           />
           <TextInput
             id="password"
@@ -105,6 +112,7 @@ class LoginForm extends React.Component {
             placeholder="Password"
             type="password"
             onChange={(e) => { this.handlePasswordChange(e) }}
+            info={this.state.passwordInfo}
           />
         </div>
         <div className="button-wrapper">
