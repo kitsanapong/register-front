@@ -55,6 +55,33 @@ const StyledCompoent = styled.div`
 
 /* eslint-disable react/prefer-stateless-function */
 class LoginForm extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      emailInput: '',
+      passwordInput: '',
+    }
+  }
+
+  handelLoginClick() {
+    this.props.login({
+      email: this.state.emailInput,
+      password: this.state.passwordInput,
+    })
+  }
+
+  handleEmailChange(e) {
+    this.setState({
+      emailInput: e.target.value,
+    })
+  }
+
+  handlePasswordChange(e) {
+    this.setState({
+      passwordInput: e.target.value,
+    })
+  }
+  
   render() {
     return (
       <StyledCompoent>
@@ -70,16 +97,18 @@ class LoginForm extends React.Component {
             icon={<MdEmail />}
             placeholder="Email"
             type="text"
+            onChange={(e) => { this.handleEmailChange(e) }}
           />
           <TextInput
             id="password"
             icon={<MdVpnKey />}
             placeholder="Password"
             type="password"
+            onChange={(e) => { this.handlePasswordChange(e) }}
           />
         </div>
         <div className="button-wrapper">
-          <Button label="LOGIN" />
+          <Button label="LOGIN" onClick={() => { this.handelLoginClick() }}/>
         </div>
         <div className="register-wrapper">
           <span className="text">Don't have an account?</span>
@@ -92,9 +121,11 @@ class LoginForm extends React.Component {
 
 LoginForm.propTypes = {
   gotoRegister: PropTypes.func,
+  login: PropTypes.func,
 };
 
 LoginForm.defaultProps = {
   gotoRegister: () => {},
+  login: () => {},
 }
 export default LoginForm;
