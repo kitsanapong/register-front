@@ -8,4 +8,12 @@ describe('loginPageReducer', () => {
       registerError: {},
     }));
   });
+  it('set registerError', () => {
+    const err = {
+      message: 'This is Error',
+    }
+    const action = RegisterFailed({ err })
+    expect(loginPageReducer(undefined, action).toJS().registerError)
+    .toEqual(err)
+  })
 });

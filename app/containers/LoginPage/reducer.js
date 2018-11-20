@@ -6,6 +6,7 @@
 
 import { fromJS } from 'immutable';
 import { DEFAULT_ACTION } from './constants';
+import { REGISTER_FAILED } from './constants';
 
 export const initialState = fromJS({
   registerError: {},
@@ -13,8 +14,8 @@ export const initialState = fromJS({
 
 function loginPageReducer(state = initialState, action) {
   switch (action.type) {
-    case DEFAULT_ACTION:
-      return state;
+    case REGISTER_FAILED:
+      return state.set('registerError', action.err)
     default:
       return state;
   }
