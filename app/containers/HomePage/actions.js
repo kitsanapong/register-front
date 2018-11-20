@@ -6,7 +6,7 @@
 
 import { LOGOUT, LOGOUT_REQUEST, LOGOUT_SUCCEED, LOGOUT_FAILED } from './constants';
 
-export function Logout({ email, password }) {
+export function Logout() {
   return {
     type: LOGOUT,
   }
