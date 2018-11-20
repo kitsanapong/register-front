@@ -1,13 +1,25 @@
-import { defaultAction } from '../actions';
-import { DEFAULT_ACTION } from '../constants';
+import { Register } from '../actions';
 
 describe('LoginPage actions', () => {
-  describe('Default Action', () => {
-    it('has a type of DEFAULT_ACTION', () => {
-      const expected = {
-        type: DEFAULT_ACTION,
-      };
-      expect(defaultAction()).toEqual(expected);
-    });
-  });
+  describe('Register', () => {
+    it('should be defined', () => {
+      expect(Register).toBeDefined()
+    })
+    it('has payload', () => {
+      const action = Register({})
+      expect(action.payload).toBeDefined()
+    })
+    it('has username in payload', () => {
+      const action = Register({ username: 'username' })
+      expect(action.payload.username).toEqual('username')
+    })
+    it('has email in payload', () => {
+      const action = Register({ email: 'email' })
+      expect(action.payload.email).toEqual('email')
+    })
+    it('has password in payload', () => {
+      const action = Register({ password: 'password' })
+      expect(action.payload.password).toEqual('password')
+    })
+  })
 });
