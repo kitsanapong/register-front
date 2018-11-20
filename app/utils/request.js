@@ -12,6 +12,6 @@ export const POSTOption = (data) => {
   }
 }
 
-export default function request({ url, option }) {
+export default function request(url, option) {
   return fetch(url, option)
 }
