@@ -57,3 +57,9 @@ export function LoginRequest() {
     type: LOGIN_REQUEST,
   }
 }
+
+export function LoginSucceed() {
+  return {
+    type: REGISTER_SUCCEED,
+  }
+}

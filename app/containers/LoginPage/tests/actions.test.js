@@ -5,6 +5,7 @@ import {
   RegisterFailed,
   Login,
   LoginRequest,
+  LoginSucceed,
 } from '../actions';
 
 describe('LoginPage actions', () => {
@@ -68,6 +69,11 @@ describe('LoginPage actions', () => {
   describe('LoginRequest', () => {
     it('should be defined', () => {
       expect(LoginRequest).toBeDefined()
+    })
+  })
+  describe('LoginSucceed', () => {
+    it('should be defined', () => {
+      expect(LoginSucceed).toBeDefined()
     })
   })
 });
