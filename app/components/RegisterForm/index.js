@@ -12,6 +12,8 @@ import { MdEmail, MdVpnKey, MdPerson, MdKeyboardArrowLeft} from 'react-icons/md'
 import TextInput from 'components/TextInput'
 import Button from 'components/Button'
 
+import { isUsernameValid, isEmailValid, isPasswordValid } from 'utils/inputValidate'
+
 const StyledCompoent = styled.div`
   padding: 48px;
   display: flex;
@@ -56,39 +58,24 @@ class RegisterForm extends React.Component {
     const input = e.target.value
     this.setState({
       usernameInput: input,
-      usernameInfo: this.isUsernameValid(input) ? '' : 'Username must be alphanumeric and with 4 - 20 of length'
+      usernameInfo: isUsernameValid(input) ? '' : 'Username must be alphanumeric and with 4 - 20 of length'
     })
-  }
-
-  isUsernameValid(input) {
-    const usernameRegx = /^([a-zA-Z0-9]){4,20}$/
-    return usernameRegx.test(input)
   }
 
   handleEmailChange(e) {
     const input = e.target.value
     this.setState({
       emailInput: input,
-      emailInfo: this.isEmailValid(input) ? '' : 'Email must be correct and not exceed 50 of length',
+      emailInfo: isEmailValid(input) ? '' : 'Email must be correct and not exceed 50 of length',
     })
-  }
-
-  isEmailValid(input) {
-    const emailRegx = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
-    const lengthLimit = input.length >= 1 && input.length <= 50
-    return emailRegx.test(input) && lengthLimit
   }
 
   handlePasswordChange(e) {
     const input = e.target.value
     this.setState({
       passwordInput: input,
-      passwordInfo: this.isPasswordValid(input) ? '' : 'Password must have 8 - 20 of length',
+      passwordInfo: isPasswordValid(input) ? '' : 'Password must have 8 - 20 of length',
     })
-  }
-
-  isPasswordValid(input) {
-    return input.length >= 8 && input.length <= 20
   }
 
   handleSubmitRegister() {
@@ -100,9 +87,9 @@ class RegisterForm extends React.Component {
   }
 
   renderRegisterButton() {
-    const disabled = !this.isUsernameValid(this.state.usernameInput) 
-                    || !this.isEmailValid(this.state.emailInput)
-                    || !this.isPasswordValid(this.state.passwordInput)
+    const disabled = !isUsernameValid(this.state.usernameInput) 
+                    || !isEmailValid(this.state.emailInput)
+                    || !isPasswordValid(this.state.passwordInput)
     return (
       <Button
         id="submit-button"
