@@ -5,7 +5,7 @@
  */
 
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { MdEmail, MdVpnKey, MdPerson, MdKeyboardArrowLeft} from 'react-icons/md'
 
@@ -91,6 +91,14 @@ class RegisterForm extends React.Component {
     return input.length >= 8 && input.length <= 20
   }
 
+  handleSubmitRegister() {
+    this.props.register({
+      username: this.state.usernameInput,
+      email: this.state.emailInput,
+      password: this.state.passwordInput,
+    })
+  }
+
   renderRegisterButton() {
     const disabled = !this.isUsernameValid(this.state.usernameInput) 
                     || !this.isEmailValid(this.state.emailInput)
@@ -100,6 +108,7 @@ class RegisterForm extends React.Component {
         id="submit-button"
         label="REGISTER"
         disabled={disabled}
+        onClick={() => { this.handleSubmitRegister() }}
       />
     )
   }
@@ -152,6 +161,14 @@ class RegisterForm extends React.Component {
   }
 }
 
-RegisterForm.propTypes = {};
+RegisterForm.propTypes = {
+  register: PropTypes.func,
+  gotoLogin: PropTypes.func,
+};
+
+RegisterForm.defaultProps = {
+  register: () => {},
+  gotoLogin: () => {},
+}
 
 export default RegisterForm;

@@ -89,4 +89,24 @@ describe('<RegisterForm />', () => {
     expect(wrapper.instance().isPasswordValid('11111111111111111111')).toEqual(true)
     expect(wrapper.instance().isPasswordValid('111111111111111111111')).toEqual(false)
   })
+  it('call props.register when handleSubmitRegister is invorked', () => {
+    const stub = jest.fn()
+    const wrapper = shallow(
+      <RegisterForm
+        register={stub}
+      />
+    )
+    const input = {
+      username: 'username',
+      email: 'email',
+      password: 'password',
+    }
+    wrapper.setState({
+      usernameInput: 'username',
+      emailInput: 'email',
+      passwordInput: 'password',
+    })
+    wrapper.instance().handleSubmitRegister()
+    expect(stub).toHaveBeenCalledWith(input)
+  })
 });
