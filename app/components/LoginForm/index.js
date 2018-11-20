@@ -87,6 +87,17 @@ class LoginForm extends React.Component {
       passwordInfo: isPasswordValid(e.target.value) ? '' : 'Password must have 8 - 20 of length',
     })
   }
+
+  renderLoginButton() {
+    const disable = !isEmailValid(this.state.emailInput) || !isPasswordValid(this.state.passwordInput)
+    return (
+      <Button
+        label="LOGIN"
+        onClick={() => { this.handelLoginClick() }}
+        disabled={disable}
+      />
+    )
+  }
   
   render() {
     return (
@@ -116,7 +127,7 @@ class LoginForm extends React.Component {
           />
         </div>
         <div className="button-wrapper">
-          <Button label="LOGIN" onClick={() => { this.handelLoginClick() }}/>
+          { this.renderLoginButton() }
         </div>
         <div className="register-wrapper">
           <span className="text">Don't have an account?</span>
