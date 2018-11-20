@@ -20,6 +20,7 @@ import injectReducer from 'utils/injectReducer';
 import makeSelectLoginPage from './selectors';
 import reducer from './reducer';
 import saga from './saga';
+import { Register } from './actions';
 
 const LOGIN_MODE = 'LOGIN_MODE'
 const REGISTER_MODE = 'REGISTER_MODE'
@@ -68,6 +69,7 @@ export class LoginPage extends React.Component {
         <RegisterForm
           id="register-form"
           gotoLogin={() => { this.gotoLogin() }}
+          register={this.props.register.bind(this)}
         />
       )
     } else {
@@ -97,6 +99,9 @@ const mapStateToProps = createStructuredSelector({
 function mapDispatchToProps(dispatch) {
   return {
     dispatch,
+    register: (data) => {
+      dispatch(Register(data))
+    },
   };
 }
 
