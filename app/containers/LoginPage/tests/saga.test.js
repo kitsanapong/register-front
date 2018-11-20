@@ -6,14 +6,18 @@
 import { take, call, put, select } from 'redux-saga/effects';
 
 import request, { POSTOption } from 'utils/request'
-import { REGISTER_URL } from 'utils/apis'
+import { REGISTER_URL, LOGIN_URL } from 'utils/apis'
 
-import loginPageSaga, { RegisterSaga } from '../saga';
+import loginPageSaga, { RegisterSaga, LoginSaga } from '../saga';
 import {
   Register,
   RegisterRequest,
   RegisterSucceed,
   RegisterFailed,
+  Login,
+  LoginRequest,
+  LoginSucceed,
+  LoginFailed,
 } from '../actions'
 
 const generator = loginPageSaga();
@@ -45,6 +49,34 @@ describe('loginPageSaga Saga', () => {
       it('should put RegisterFailed', () => {
         const err = {}
         expect(saga.throw(err).value).toEqual(put(RegisterFailed({ err })))
+      })
+    })
+  })
+  describe('LoginSaga', () => {
+    it('should be defined', () => {
+      expect(LoginSaga).toBeDefined()
+    })
+    describe('Call', () => {
+      let saga
+      const action = Login({
+        email: 'email',
+        password: 'password',
+      })
+      saga = LoginSaga(action)
+      it('should put LoginRequest', () => {
+        expect(saga.next().value).toEqual(put(LoginRequest()))
+      })
+      it('should call login api', () => {
+        const url = LOGIN_URL
+        const option = POSTOption(action.payload)
+        expect(saga.next().value).toEqual(call(request, url, option))
+      })
+      it('should put LoginSucceed', () => {
+        expect(saga.next().value).toEqual(put(LoginSucceed()))
+      })
+      it('should put LoginFailed', () => {
+        const err = {}
+        expect(saga.throw(err).value).toEqual(put(LoginFailed({ err })))
       })
     })
   })
