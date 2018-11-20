@@ -4,7 +4,7 @@
  *
  */
 
-import { DEFAULT_ACTION, REGISTER, REGISTER_REQUEST } from './constants';
+import { DEFAULT_ACTION, REGISTER, REGISTER_REQUEST, REGISTER_SUCCEED } from './constants';
 
 export function defaultAction() {
   return {
@@ -26,5 +26,11 @@ export function Register({ username, email, password }) {
 export function RegisterRequest() {
   return {
     type: REGISTER_REQUEST,
+  }
+}
+
+export function RegisterSucceed() {
+  return {
+    type: REGISTER_SUCCEED,
   }
 }

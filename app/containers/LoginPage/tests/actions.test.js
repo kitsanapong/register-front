@@ -1,4 +1,8 @@
-import { Register, RegisterRequest } from '../actions';
+import {
+  Register,
+  RegisterRequest,
+  RegisterSucceed,
+} from '../actions';
 
 describe('LoginPage actions', () => {
   describe('Register', () => {
@@ -25,6 +29,11 @@ describe('LoginPage actions', () => {
   describe('RegisterRequest', () => {
     it('should be defined', () => {
       expect(RegisterRequest).toBeDefined()
+    })
+  })
+  describe('RegisterSucceed', () => {
+    it('should be defined', () => {
+      expect(RegisterSucceed).toBeDefined()
     })
   })
 });
