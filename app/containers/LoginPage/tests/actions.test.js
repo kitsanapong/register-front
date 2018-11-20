@@ -3,6 +3,7 @@ import {
   RegisterRequest,
   RegisterSucceed,
   RegisterFailed,
+  Login,
 } from '../actions';
 
 describe('LoginPage actions', () => {
@@ -44,6 +45,23 @@ describe('LoginPage actions', () => {
     it('should have err', () => {
       const action = RegisterFailed({ err: 'This is error' })
       expect(action.err).toEqual('This is error')
+    })
+  })
+  describe('Login', () => {
+    it('should be defined', () => {
+      expect(Login).toBeDefined()
+    })
+    it('has payload', () => {
+      const action = Login({})
+      expect(action.payload).toBeDefined()
+    })
+    it('has email in payload', () => {
+      const action = Login({ email: 'email' })
+      expect(action.payload.email).toEqual('email')
+    })
+    it('has password in payload', () => {
+      const action = Login({ password: 'password' })
+      expect(action.payload.password).toEqual('password')
     })
   })
 });
