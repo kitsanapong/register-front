@@ -1,4 +1,4 @@
-import { Register } from '../actions';
+import { Register, RegisterRequest } from '../actions';
 
 describe('LoginPage actions', () => {
   describe('Register', () => {
@@ -20,6 +20,11 @@ describe('LoginPage actions', () => {
     it('has password in payload', () => {
       const action = Register({ password: 'password' })
       expect(action.payload.password).toEqual('password')
+    })
+  })
+  describe('RegisterRequest', () => {
+    it('should be defined', () => {
+      expect(RegisterRequest).toBeDefined()
     })
   })
 });
