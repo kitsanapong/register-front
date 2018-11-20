@@ -7,7 +7,9 @@
 import { fromJS } from 'immutable';
 import { DEFAULT_ACTION } from './constants';
 
-export const initialState = fromJS({});
+export const initialState = fromJS({
+  registerError: {},
+});
 
 function loginPageReducer(state = initialState, action) {
   switch (action.type) {
