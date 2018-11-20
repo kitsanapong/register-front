@@ -46,9 +46,18 @@ class Button extends React.Component {
     return className
   }
 
+  handleClick() {
+    if (!this.props.disabled) {
+      this.props.onClick()
+    }
+  }
+
   render() {
     return (
-      <StyledComponents className={this.getClassName()}>
+      <StyledComponents
+        className={this.getClassName()}
+        onClick={() => { this.handleClick() }}
+      >
         { this.props.label }
       </StyledComponents>
     )
@@ -58,6 +67,7 @@ class Button extends React.Component {
 Button.propTypes = {
   label: PropTypes.string,
   disable: PropTypes.bool,
+  onClick: PropTypes.func,
 };
 
 export default Button;
