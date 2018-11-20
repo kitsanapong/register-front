@@ -6,6 +6,7 @@ import {
   Login,
   LoginRequest,
   LoginSucceed,
+  LoginFailed,
 } from '../actions';
 
 describe('LoginPage actions', () => {
@@ -74,6 +75,15 @@ describe('LoginPage actions', () => {
   describe('LoginSucceed', () => {
     it('should be defined', () => {
       expect(LoginSucceed).toBeDefined()
+    })
+  })
+  describe('LoginFailed', () => {
+    it('should be defined', () => {
+      expect(LoginFailed).toBeDefined()
+    })
+    it('should have err', () => {
+      const action = LoginFailed({ err: 'This is error' })
+      expect(action.err).toEqual('This is error')
     })
   })
 });

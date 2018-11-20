@@ -4,7 +4,7 @@
  *
  */
 
-import { DEFAULT_ACTION, REGISTER, REGISTER_REQUEST, REGISTER_SUCCEED, REGISTER_FAILED, LOGIN, LOGIN_REQUEST } from './constants';
+import { DEFAULT_ACTION, REGISTER, REGISTER_REQUEST, REGISTER_SUCCEED, REGISTER_FAILED, LOGIN, LOGIN_REQUEST, LOGIN_SUCCEED, LOGIN_FAILED } from './constants';
 
 export function defaultAction() {
   return {
@@ -60,6 +60,13 @@ export function LoginRequest() {
 
 export function LoginSucceed() {
   return {
-    type: REGISTER_SUCCEED,
+    type: LOGIN_SUCCEED,
+  }
+}
+
+export function LoginFailed({ err }) {
+  return {
+    type: LOGIN_FAILED,
+    err,
   }
 }
