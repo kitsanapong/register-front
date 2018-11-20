@@ -20,7 +20,7 @@ import injectReducer from 'utils/injectReducer';
 import makeSelectLoginPage from './selectors';
 import reducer from './reducer';
 import saga from './saga';
-import { Register } from './actions';
+import { Register, Login } from './actions';
 
 const LOGIN_MODE = 'LOGIN_MODE'
 const REGISTER_MODE = 'REGISTER_MODE'
@@ -62,6 +62,7 @@ export class LoginPage extends React.Component {
         <LoginForm
           id="login-form"
           gotoRegister={() => { this.gotoRegister() }}
+          login={this.props.login.bind(this)}
         />
       )
     } else if (mode === REGISTER_MODE) {
@@ -101,6 +102,9 @@ function mapDispatchToProps(dispatch) {
     dispatch,
     register: (data) => {
       dispatch(Register(data))
+    },
+    login: (data) => {
+      dispatch(Login(data))
     },
   };
 }
