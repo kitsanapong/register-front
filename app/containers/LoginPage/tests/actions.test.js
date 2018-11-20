@@ -4,6 +4,7 @@ import {
   RegisterSucceed,
   RegisterFailed,
   Login,
+  LoginRequest,
 } from '../actions';
 
 describe('LoginPage actions', () => {
@@ -62,6 +63,11 @@ describe('LoginPage actions', () => {
     it('has password in payload', () => {
       const action = Login({ password: 'password' })
       expect(action.payload.password).toEqual('password')
+    })
+  })
+  describe('LoginRequest', () => {
+    it('should be defined', () => {
+      expect(LoginRequest).toBeDefined()
     })
   })
 });
