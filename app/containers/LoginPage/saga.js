@@ -4,6 +4,7 @@ import request, { POSTOption } from 'utils/request'
 import { REGISTER_URL } from 'utils/apis'
 
 import { Register, RegisterRequest, RegisterSucceed, RegisterFailed } from './actions'
+import { REGISTER } from './constants';
 
 export function* RegisterSaga(action) {
   yield put(RegisterRequest())
@@ -20,5 +21,5 @@ export function* RegisterSaga(action) {
 
 // Individual exports for testing
 export default function* loginPageSaga() {
-  yield takeLatest(Register().type, RegisterSaga)
+  yield takeLatest(REGISTER, RegisterSaga)
 }
