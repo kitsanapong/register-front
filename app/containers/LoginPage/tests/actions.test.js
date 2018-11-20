@@ -2,6 +2,7 @@ import {
   Register,
   RegisterRequest,
   RegisterSucceed,
+  RegisterFailed,
 } from '../actions';
 
 describe('LoginPage actions', () => {
@@ -34,6 +35,15 @@ describe('LoginPage actions', () => {
   describe('RegisterSucceed', () => {
     it('should be defined', () => {
       expect(RegisterSucceed).toBeDefined()
+    })
+  })
+  describe('RegisterFailed', () => {
+    it('should be defined', () => {
+      expect(RegisterFailed).toBeDefined()
+    })
+    it('should have err', () => {
+      const action = RegisterFailed({ err: 'This is error' })
+      expect(action.err).toEqual('This is error')
     })
   })
 });

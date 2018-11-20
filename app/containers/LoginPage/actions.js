@@ -4,7 +4,7 @@
  *
  */
 
-import { DEFAULT_ACTION, REGISTER, REGISTER_REQUEST, REGISTER_SUCCEED } from './constants';
+import { DEFAULT_ACTION, REGISTER, REGISTER_REQUEST, REGISTER_SUCCEED, REGISTER_FAILED } from './constants';
 
 export function defaultAction() {
   return {
@@ -32,5 +32,12 @@ export function RegisterRequest() {
 export function RegisterSucceed() {
   return {
     type: REGISTER_SUCCEED,
+  }
+}
+
+export function RegisterFailed({ err }) {
+  return {
+    type: REGISTER_FAILED,
+    err,
   }
 }
