@@ -5,7 +5,7 @@
  */
 
 import { fromJS } from 'immutable';
-import { DEFAULT_ACTION, REGISTER_REQUEST } from './constants';
+import { DEFAULT_ACTION, REGISTER_REQUEST, REGISTER_SUCCEED } from './constants';
 import { REGISTER_FAILED } from './constants';
 
 export const initialState = fromJS({
@@ -20,6 +20,8 @@ function loginPageReducer(state = initialState, action) {
     case REGISTER_REQUEST:
       return state.set('requestingRegister', true)
         .set('registerError', {})
+    case REGISTER_SUCCEED:
+      return state.set('requestingRegister', false)
     default:
       return state;
   }

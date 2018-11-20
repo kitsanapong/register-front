@@ -1,6 +1,6 @@
 import { fromJS } from 'immutable';
 import loginPageReducer from '../reducer';
-import { RegisterFailed, RegisterRequest } from '../actions'
+import { RegisterFailed, RegisterRequest, RegisterSucceed } from '../actions'
 
 describe('loginPageReducer', () => {
   it('returns the initial state', () => {
@@ -17,6 +17,13 @@ describe('loginPageReducer', () => {
     }), action).toJS()
     expect(state.requestingRegister).toEqual(true)
     expect(state.registerError).toEqual({})
+  })
+  it('RegisterSucceed must clear state', () => {
+    const action = RegisterSucceed()
+    const state = loginPageReducer(fromJS({
+      requestingRegister: true,
+    }), action).toJS()
+    expect(state.requestingRegister).toEqual(false)
   })
   it('set registerError', () => {
     const err = {
