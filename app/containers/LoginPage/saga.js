@@ -5,6 +5,7 @@ import { REGISTER_URL, LOGIN_URL } from 'utils/apis'
 
 import { RegisterRequest, RegisterSucceed, RegisterFailed, LoginRequest, LoginSucceed, LoginFailed } from './actions'
 import { REGISTER, LOGIN } from './constants';
+import { requestXML } from '../../utils/request';
 
 export function* RegisterSaga(action) {
   yield put(RegisterRequest())
@@ -30,7 +31,7 @@ export function* LoginSaga(action) {
   try {
     const url = LOGIN_URL
     const option = POSTOption(action.payload)
-    const res = yield call(request, url, option)
+    const res = yield call(requestXML, url, option)
     if (res.status < 300) {
       yield put(LoginSucceed())
     } else {

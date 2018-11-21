@@ -19,6 +19,7 @@ import {
   LoginSucceed,
   LoginFailed,
 } from '../actions'
+import { requestXML } from '../../../utils/request';
 
 const generator = loginPageSaga();
 
@@ -44,7 +45,8 @@ describe('loginPageSaga Saga', () => {
         expect(saga.next().value).toEqual(call(request, url, option))
       })
       it('should put RegisterSucceed', () => {
-        expect(saga.next().value).toEqual(put(RegisterSucceed()))
+        const res = { status: 200 }
+        expect(saga.next(res).value).toEqual(put(RegisterSucceed()))
       })
       it('should put RegisterFailed', () => {
         const err = {}
@@ -64,15 +66,18 @@ describe('loginPageSaga Saga', () => {
       })
       saga = LoginSaga(action)
       it('should put LoginRequest', () => {
-        expect(saga.next().value).toEqual(put(LoginRequest()))
+        const res = { status: 200 }
+        expect(saga.next(res).value).toEqual(put(LoginRequest()))
       })
       it('should call login api', () => {
         const url = LOGIN_URL
         const option = POSTOption(action.payload)
-        expect(saga.next().value).toEqual(call(request, url, option))
+        const res = { status: 200 }
+        expect(saga.next(res).value).toEqual(call(requestXML, url, option))
       })
       it('should put LoginSucceed', () => {
-        expect(saga.next().value).toEqual(put(LoginSucceed()))
+        const res = { status: 200 }
+        expect(saga.next(res).value).toEqual(put(LoginSucceed()))
       })
       it('should put LoginFailed', () => {
         const err = {}

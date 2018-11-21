@@ -23,3 +23,7 @@ export default function request(url, option) {
   return fetch(url, option)
     .then(parseJSON)
 }
+
+export function requestXML(url, option) {
+  return fetch(url, option)
+}
