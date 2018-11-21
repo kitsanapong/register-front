@@ -10,6 +10,10 @@ import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
+import styled from 'styled-components'
+
+import BackgroundImage from 'images/background.jpg'
+import Button from 'components/Button'
 
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
@@ -17,15 +21,56 @@ import makeSelectHomePage from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 
+const StyledComponents = styled.div`
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  positio: relative;
+  background: linear-gradient(rgba(176,49,67,0.8),rgba(130,67,168,0.95)), url(${BackgroundImage});
+  background-size: cover;
+  background-repeat: no-repeat;
+  .wrapper {
+    z-index: 2;
+    width: 500px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 36px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 30px, rgba(0, 0, 0, 0.23) 0px 6px 10px;
+    .username {
+      text-align: center;
+      font-size: 36px;
+    }
+  }
+`
+
 /* eslint-disable react/prefer-stateless-function */
 export class HomePage extends React.Component {
+  renderContent() {
+    return (
+      <StyledComponents>
+        <div className="wrapper">
+          <div className="username">Kitsanapong</div>
+          <div>
+            <Button label="LOG OUT" />
+          </div>
+        </div>
+      </StyledComponents>
+    )
+  }
+
   render() {
     return (
-      <div>
+      <div className="full-height">
         <Helmet>
           <title>HomePage</title>
           <meta name="description" content="Description of HomePage" />
         </Helmet>
+        { this.renderContent() }
       </div>
     );
   }

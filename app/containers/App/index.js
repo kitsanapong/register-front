@@ -20,7 +20,7 @@ export default function App() {
   return (
     <div className="full-height">
       <Switch>
-        <Route exact path="/" component={HomePage} />
+        <Route exact path="/homepage" component={HomePage} />
         <Route exact path="/login" component={LoginPage} />
         <Route component={NotFoundPage} />
       </Switch>
