@@ -7,12 +7,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { MdEmail, MdVpnKey, MdPerson, MdKeyboardArrowLeft} from 'react-icons/md'
+import { MdEmail, MdVpnKey, MdPerson, MdKeyboardArrowLeft, MdCheck } from 'react-icons/md'
 
 import TextInput from 'components/TextInput'
 import Button from 'components/Button'
 
 import { isUsernameValid, isEmailValid, isPasswordValid } from 'utils/inputValidate'
+
+const IDEL_MODE = 'IDEL_MODE'
+const SUCCEED_MODE = 'SUCCEED_MODE'
 
 const StyledCompoent = styled.div`
   padding: 48px;
@@ -38,6 +41,19 @@ const StyledCompoent = styled.div`
       font-size: 14px;
     }
   }
+  .button-wrapper {
+    &.noti {
+      margin-bottom: 72px;
+    }
+  }
+  .noti-wrapper {
+    .icon-wrapper {
+      text-align: center;
+      svg {
+        font-size: 100px;
+      }
+    }
+  }
 `
 
 /* eslint-disable react/prefer-stateless-function */
@@ -51,6 +67,7 @@ class RegisterForm extends React.Component {
       emailInfo: '',
       passwordInput: '',
       passwordInfo: '',
+      mode: IDEL_MODE,
     }
   }
 
@@ -100,7 +117,25 @@ class RegisterForm extends React.Component {
     )
   }
 
-  render() {
+  renderBigBackButton() {
+    return (
+      <Button
+        id="big-back-button"
+        label="BACK TO LOGIN"
+        onClick={() => { this.props.gotoLogin() }}
+      />
+    )
+  }
+
+  renderForm() {
+    if (this.state.mode === IDEL_MODE) {
+      return this.renderRegisterForm()
+    } else {
+      return this.renderSuccedInfo()
+    }
+  }
+
+  renderRegisterForm() {
     return (
       <StyledCompoent>
         <div className="header">
@@ -145,6 +180,28 @@ class RegisterForm extends React.Component {
         </div>
       </StyledCompoent>
     )
+  }
+
+  renderSuccedInfo() {
+    return (
+      <StyledCompoent>
+        <div className="header">
+          <div className="title">Register successfully</div>
+        </div>
+        <div className="noti-wrapper">
+          <div className="icon-wrapper">
+            <MdCheck />
+          </div>
+        </div>
+        <div className="button-wrapper noti">
+          { this.renderBigBackButton() }
+        </div>
+      </StyledCompoent>
+    )
+  }
+
+  render() {
+    return this.renderForm()
   }
 }
 
