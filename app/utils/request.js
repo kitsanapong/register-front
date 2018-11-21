@@ -13,9 +13,20 @@ export const POSTOption = (data) => {
     headers: {
       'Content-Type': 'application/json'
     },
+    credentials: 'include',
     body: JSON.stringify({
       ...data,  
     })
+  }
+}
+
+export const GETOption = () => {
+  return {
+    method: 'GET',
+    credentials: 'include',
+    headers: {
+      'Content-Type': 'application/json'
+    },
   }
 }
 

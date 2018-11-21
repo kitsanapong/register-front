@@ -1,9 +1,10 @@
 import { takeLatest, call, put, select } from 'redux-saga/effects';
 
-import request, { POSTOption } from 'utils/request'
-import { LogoutRequest, LogoutSucceed, LogoutFailed } from './actions';
+import request, { POSTOption, GETOption } from 'utils/request'
+import { LogoutRequest, LogoutSucceed, LogoutFailed, GetUserRequest, GetUserSucceed, GetUserFailed } from './actions';
 import { LOGOUT_URL } from 'utils/apis'
-import { LOGOUT } from './constants';
+import { LOGOUT, GET_USER } from './constants';
+import { GET_USER_URL } from '../../utils/apis';
 
 export function* LogoutSaga(action) {
   yield put(LogoutRequest())
@@ -18,7 +19,21 @@ export function* LogoutSaga(action) {
   }
 }
 
+export function* GetUserSaga(action) {
+  yield put(GetUserRequest())
+  try {
+    const url = GET_USER_URL
+    const option = GETOption(action.payload)
+    const res = yield call(request, url, option)
+    yield put(GetUserSucceed({ ...res.user }))
+  }
+  catch (err) {
+    yield put(GetUserFailed({ err }))
+  }
+}
+
 // Individual exports for testing
 export default function* homePageSaga() {
   yield takeLatest(LOGOUT, LogoutSaga)
+  yield takeLatest(GET_USER, GetUserSaga)
 }

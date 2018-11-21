@@ -20,6 +20,7 @@ import injectReducer from 'utils/injectReducer';
 import makeSelectHomePage, { makeSelectUserData } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
+import { GetUser } from './actions';
 
 const StyledComponents = styled.div`
   height: 100%;
@@ -50,11 +51,16 @@ const StyledComponents = styled.div`
 
 /* eslint-disable react/prefer-stateless-function */
 export class HomePage extends React.Component {
+  componentDidMount() {
+    this.props.getUser()
+  }
+
   renderContent() {
+    const username = this.props.homePage.userData ? this.props.homePage.userData.username : ''
     return (
       <StyledComponents>
         <div className="wrapper">
-          <div className="username">{ this.props.userData.username }</div>
+          <div className="username">{ username }</div>
           <div>
             <Button label="LOG OUT" />
           </div>
@@ -82,12 +88,14 @@ HomePage.propTypes = {
 
 const mapStateToProps = createStructuredSelector({
   homePage: makeSelectHomePage(),
-  userData: makeSelectUserData(),
 });
 
 function mapDispatchToProps(dispatch) {
   return {
     dispatch,
+    getUser: () => {
+      dispatch(GetUser())
+    },
   };
 }
 

@@ -5,14 +5,16 @@
  */
 
 import { fromJS } from 'immutable';
-import { DEFAULT_ACTION } from './constants';
+import { DEFAULT_ACTION, GET_USER_SUCCEED } from './constants';
 
-export const initialState = fromJS({});
+export const initialState = fromJS({
+  userData: undefined,
+});
 
 function homePageReducer(state = initialState, action) {
   switch (action.type) {
-    case DEFAULT_ACTION:
-      return state;
+    case GET_USER_SUCCEED:
+      return state.set('userData', action.payload);
     default:
       return state;
   }

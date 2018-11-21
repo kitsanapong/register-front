@@ -22,6 +22,9 @@ const makeSelectUserData = () => {
   return createSelector((state) => {
     return state.get('loginPage')
   }, (substate) => {
+    if (!substate) {
+      return {}
+    }
     return substate.toJS().userData
   })
 }
