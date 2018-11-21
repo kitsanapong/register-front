@@ -13,7 +13,7 @@ export function* RegisterSaga(action) {
     const url = REGISTER_URL
     const option = POSTOption(action.payload)
     const res = yield call(request, url, option)
-    if (res.status < 300) {
+    if (res.success) {
       yield put(RegisterSucceed())
     } else {
       yield put(RegisterFailed({
