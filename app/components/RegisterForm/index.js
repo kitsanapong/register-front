@@ -143,6 +143,20 @@ class RegisterForm extends React.Component {
     }
   }
 
+  getUsernameInfo() {
+    if (this.props.registerError.message === 'Username is already used.') {
+      return this.props.registerError.message
+    }
+    return this.state.usernameInfo
+  }
+
+  getEmailInfo() {
+    if (this.props.registerError.message === 'Email is already used.') {
+      return this.props.registerError.message
+    }
+    return this.state.emailInfo
+  }
+
   renderRegisterForm() {
     return (
       <StyledCompoent>
@@ -158,7 +172,7 @@ class RegisterForm extends React.Component {
             placeholder="Username"
             type="text"
             onChange={(e) => { this.handleUsernameChange(e) }}
-            info={this.state.usernameInfo}
+            info={this.getUsernameInfo()}
           />
           <TextInput
             id="email"
@@ -166,7 +180,7 @@ class RegisterForm extends React.Component {
             placeholder="Email"
             type="text"
             onChange={(e) => { this.handleEmailChange(e) }}
-            info={this.state.emailInfo}
+            info={this.getEmailInfo()}
           />
           <TextInput
             id="password"
