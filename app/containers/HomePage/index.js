@@ -28,7 +28,7 @@ const StyledComponents = styled.div`
   align-items: center;
   justify-content: center;
   positio: relative;
-  background: linear-gradient(rgba(176,49,67,0.8),rgba(130,67,168,0.95)), url(${BackgroundImage});
+  background: linear-gradient(rgba(238,45,96,0.8),rgba(20,22,66,0.95)), url(${BackgroundImage});
   background-size: cover;
   background-repeat: no-repeat;
   .wrapper {
