@@ -230,11 +230,13 @@ class RegisterForm extends React.Component {
 RegisterForm.propTypes = {
   register: PropTypes.func,
   gotoLogin: PropTypes.func,
+  registerError: PropTypes.object,
 };
 
 RegisterForm.defaultProps = {
   register: () => {},
   gotoLogin: () => {},
+  registerError: () => {},
 }
 
 export default RegisterForm;
