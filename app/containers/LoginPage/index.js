@@ -71,6 +71,8 @@ export class LoginPage extends React.Component {
           id="register-form"
           gotoLogin={() => { this.gotoLogin() }}
           register={this.props.register.bind(this)}
+          requestingRegister={this.props.loginPage.requestingRegister}
+          registerError={this.props.loginPage.registerError}
         />
       )
     } else {
@@ -79,6 +81,7 @@ export class LoginPage extends React.Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <StyledComponent>
         <GuestLanding>

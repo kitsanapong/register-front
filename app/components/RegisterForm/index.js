@@ -71,6 +71,14 @@ class RegisterForm extends React.Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.requestingRegister === true && nextProps.requestingRegister === false && Object.keys(nextProps.registerError).length === 0) {
+      this.setState({
+        mode: SUCCEED_MODE,
+      })
+    }
+  }
+
   handleUsernameChange(e) {
     const input = e.target.value
     this.setState({
