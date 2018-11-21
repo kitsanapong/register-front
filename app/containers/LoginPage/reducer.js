@@ -13,6 +13,7 @@ export const initialState = fromJS({
   requestingRegister: false,
   loginError: {},
   requestingLogin: false,
+  userData: undefined,
 });
 
 function loginPageReducer(state = initialState, action) {
@@ -29,6 +30,7 @@ function loginPageReducer(state = initialState, action) {
         .set('loginError', {})
     case LOGIN_SUCCEED:
       return state.set('requestingLogin', false)
+        .set('userData', {...action.payload})
     case LOGIN_FAILED:
       return state.set('loginError', action.err)
         .set('requestingLogin', false)

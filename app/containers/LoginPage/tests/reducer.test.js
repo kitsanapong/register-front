@@ -9,6 +9,7 @@ describe('loginPageReducer', () => {
       requestingRegister: false,
       loginError: {},
       requestingLogin: false,
+      userData: undefined,
     }));
   });
   it('RegisterRequest must clear state', () => {
@@ -45,11 +46,20 @@ describe('loginPageReducer', () => {
     expect(state.loginError).toEqual({})
   })
   it('LoginSucceed must clear state', () => {
-    const action = LoginSucceed()
+    const action = LoginSucceed({})
     const state = loginPageReducer(fromJS({
       requestingLogin: true,
     }), action).toJS()
     expect(state.requestingLogin).toEqual(false)
+  })
+  it('LoginSucceed must set userData', () => {
+    const action = LoginSucceed({
+      user_name: 'name',
+    })
+    const state = loginPageReducer(undefined, action).toJS()
+    expect(state.userData).toEqual({
+      username: 'name',
+    })
   })
   it('LoginFailed set loginError', () => {
     const err = {

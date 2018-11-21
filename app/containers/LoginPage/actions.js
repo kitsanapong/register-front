@@ -58,9 +58,12 @@ export function LoginRequest() {
   }
 }
 
-export function LoginSucceed() {
+export function LoginSucceed({ user_name }) {
   return {
     type: LOGIN_SUCCEED,
+    payload: {
+      username: user_name,
+    }
   }
 }
 

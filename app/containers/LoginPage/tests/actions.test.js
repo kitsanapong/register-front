@@ -76,6 +76,12 @@ describe('LoginPage actions', () => {
     it('should be defined', () => {
       expect(LoginSucceed).toBeDefined()
     })
+    it('should have username', () => {
+      const action =  LoginSucceed({
+        user_name: 'username',
+      })
+      expect(action.payload.username).toEqual('username')
+    })
   })
   describe('LoginFailed', () => {
     it('should be defined', () => {
