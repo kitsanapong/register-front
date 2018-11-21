@@ -31,6 +31,7 @@ function loginPageReducer(state = initialState, action) {
       return state.set('requestingLogin', false)
     case LOGIN_FAILED:
       return state.set('loginError', action.err)
+        .set('requestingLogin', false)
     default:
       return state;
   }

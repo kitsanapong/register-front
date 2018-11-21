@@ -24,8 +24,17 @@ export function* LoginSaga(action) {
   try {
     const url = LOGIN_URL
     const option = POSTOption(action.payload)
-    yield call(request, url, option)
-    yield put(LoginSucceed())
+    const res = yield call(request, url, option)
+    if (res.status < 300) {
+      yield put(LoginSucceed())
+    } else {
+      yield put(LoginFailed({
+        err : {
+          message: res.statusText,
+          status: res.status,
+        },
+      }))
+    }
   }
   catch (err) {
     yield put(LoginFailed({ err }))

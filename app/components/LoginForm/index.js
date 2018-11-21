@@ -98,6 +98,17 @@ class LoginForm extends React.Component {
       />
     )
   }
+
+  getUsernameInfoText() {
+    if (Object.keys(this.props.error).length > 0) {
+      if (this.props.error.status === 401) {
+        return 'Invalid username or password.'
+      } else {
+        return 'Something when wrong. Please try again.'
+      }
+    }
+    return this.state.emailInfo
+  }
   
   render() {
     return (
@@ -115,7 +126,7 @@ class LoginForm extends React.Component {
             placeholder="Email"
             type="text"
             onChange={(e) => { this.handleEmailChange(e) }}
-            info={this.state.emailInfo}
+            info={this.getUsernameInfoText()}
           />
           <TextInput
             id="password"
