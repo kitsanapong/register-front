@@ -152,10 +152,12 @@ class LoginForm extends React.Component {
 LoginForm.propTypes = {
   gotoRegister: PropTypes.func,
   login: PropTypes.func,
+  error: PropTypes.object,
 };
 
 LoginForm.defaultProps = {
   gotoRegister: () => {},
   login: () => {},
+  error: {},
 }
 export default LoginForm;

@@ -101,7 +101,16 @@ export class LoginPage extends React.Component {
 
 LoginPage.propTypes = {
   dispatch: PropTypes.func.isRequired,
+  loginPage: PropTypes.object,
+  login: PropTypes.func,
+  register: PropTypes.func,
 };
+
+LoginPage.defaultProps = {
+  loginPage: {},
+  login: () => {},
+  register: () => {},
+}
 
 const mapStateToProps = createStructuredSelector({
   loginPage: makeSelectLoginPage(),

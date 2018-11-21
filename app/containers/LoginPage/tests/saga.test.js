@@ -45,7 +45,7 @@ describe('loginPageSaga Saga', () => {
         expect(saga.next().value).toEqual(call(request, url, option))
       })
       it('should put RegisterSucceed', () => {
-        const res = { status: 200 }
+        const res = { success: true }
         expect(saga.next(res).value).toEqual(put(RegisterSucceed()))
       })
       it('should put RegisterFailed', () => {
@@ -74,10 +74,6 @@ describe('loginPageSaga Saga', () => {
         const option = POSTOption(action.payload)
         const res = { status: 200 }
         expect(saga.next(res).value).toEqual(call(requestXML, url, option))
-      })
-      it('should put LoginSucceed', () => {
-        const res = { status: 200 }
-        expect(saga.next(res).value).toEqual(put(LoginSucceed()))
       })
       it('should put LoginFailed', () => {
         const err = {}
