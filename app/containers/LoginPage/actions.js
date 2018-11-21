@@ -46,7 +46,7 @@ export function Login({ email, password }) {
   return {
     type: LOGIN,
     payload: {
-      email,
+      username: email,
       password,
     },
   }

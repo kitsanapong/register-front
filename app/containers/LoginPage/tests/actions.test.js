@@ -58,9 +58,9 @@ describe('LoginPage actions', () => {
       const action = Login({})
       expect(action.payload).toBeDefined()
     })
-    it('has email in payload', () => {
+    it('has username in payload', () => {
       const action = Login({ email: 'email' })
-      expect(action.payload.email).toEqual('email')
+      expect(action.payload.username).toEqual('email')
     })
     it('has password in payload', () => {
       const action = Login({ password: 'password' })
