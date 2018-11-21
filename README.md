@@ -14,6 +14,6 @@ npm start
 ```
 
 ## Preview
-![preview1](./public/preview1.png)
-![preview2](./public/preview2.png)
-![preview3](./public/preview3.png)
+![preview1](./app/images/preview1.png)
+![preview2](./app/images/preview2.png)
+![preview3](./app/images/preview3.png)
