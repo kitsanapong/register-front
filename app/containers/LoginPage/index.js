@@ -21,6 +21,7 @@ import makeSelectLoginPage from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import { Register, Login } from './actions';
+import { push } from 'connected-react-router';
 
 const LOGIN_MODE = 'LOGIN_MODE'
 const REGISTER_MODE = 'REGISTER_MODE'
@@ -40,6 +41,12 @@ export class LoginPage extends React.Component {
     super(props)
     this.state = {
       mode: LOGIN_MODE,
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.loginPage.requestingLogin === true && nextProps.loginPage.requestingLogin === false && Object.keys(nextProps.loginPage.loginError).length === 0) {
+      this.props.goto('/homepage')
     }
   }
 
@@ -109,6 +116,9 @@ function mapDispatchToProps(dispatch) {
     login: (data) => {
       dispatch(Login(data))
     },
+    goto: (path) => {
+      dispatch(push(path))
+    }
   };
 }
 
