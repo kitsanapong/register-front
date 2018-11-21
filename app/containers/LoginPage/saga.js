@@ -33,7 +33,10 @@ export function* LoginSaga(action) {
     const option = POSTOption(action.payload)
     const res = yield call(requestXML, url, option)
     if (res.status < 300) {
-      yield put(LoginSucceed())
+      const data = yield res.json()
+      yield put(LoginSucceed({
+        user_name: data.user_name,
+      }))
     } else {
       yield put(LoginFailed({
         err : {

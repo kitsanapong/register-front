@@ -17,7 +17,7 @@ import Button from 'components/Button'
 
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
-import makeSelectHomePage from './selectors';
+import makeSelectHomePage, { makeSelectUserData } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 
@@ -54,7 +54,7 @@ export class HomePage extends React.Component {
     return (
       <StyledComponents>
         <div className="wrapper">
-          <div className="username">Kitsanapong</div>
+          <div className="username">{ this.props.userData.username }</div>
           <div>
             <Button label="LOG OUT" />
           </div>
@@ -82,6 +82,7 @@ HomePage.propTypes = {
 
 const mapStateToProps = createStructuredSelector({
   homePage: makeSelectHomePage(),
+  userData: makeSelectUserData(),
 });
 
 function mapDispatchToProps(dispatch) {
