@@ -22,7 +22,7 @@ export default function App() {
       <Switch>
         <Route exact path="/homepage" component={HomePage} />
         <Route exact path="/login" component={LoginPage} />
-        <Route component={NotFoundPage} />
+        <Route component={LoginPage} />
       </Switch>
       <GlobalStyle />
     </div>
