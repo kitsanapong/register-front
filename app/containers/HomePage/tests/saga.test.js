@@ -5,7 +5,7 @@
 /* eslint-disable redux-saga/yield-effects */
 import { take, call, put, select } from 'redux-saga/effects';
 
-import request, { POSTOption } from 'utils/request'
+import request, { POSTOption, GETOption } from 'utils/request'
 import { LOGOUT_URL } from 'utils/apis'
 
 import homePageSaga, { LogoutSaga } from '../saga';
@@ -28,7 +28,7 @@ describe('homePageSaga Saga', () => {
       })
       it('should call logout api', () => {
         const url = LOGOUT_URL
-        const option = POSTOption(action.payload)
+        const option = GETOption(action.payload)
         expect(saga.next().value).toEqual(call(request, url, option))
       })
       it('should put LogoutSucceed', () => {
