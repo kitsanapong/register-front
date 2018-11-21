@@ -20,7 +20,8 @@ import injectReducer from 'utils/injectReducer';
 import makeSelectHomePage, { makeSelectUserData } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
-import { GetUser } from './actions';
+import { GetUser, Logout } from './actions';
+import { push } from 'connected-react-router';
 
 const StyledComponents = styled.div`
   height: 100%;
@@ -55,6 +56,12 @@ export class HomePage extends React.Component {
     this.props.getUser()
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.homePage.userData !== undefined && nextProps.homePage.userData === undefined) {
+      this.props.goto('/login')
+    }
+  }
+
   renderContent() {
     const username = this.props.homePage.userData ? this.props.homePage.userData.username : ''
     return (
@@ -62,7 +69,7 @@ export class HomePage extends React.Component {
         <div className="wrapper">
           <div className="username">{ username }</div>
           <div>
-            <Button label="LOG OUT" />
+            <Button label="LOG OUT" onClick={() => { this.props.logOut() }}/>
           </div>
         </div>
       </StyledComponents>
@@ -70,6 +77,7 @@ export class HomePage extends React.Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <div className="full-height">
         <Helmet>
@@ -96,6 +104,12 @@ function mapDispatchToProps(dispatch) {
     getUser: () => {
       dispatch(GetUser())
     },
+    logOut: () => {
+      dispatch(Logout())
+    },
+    goto: (path) => {
+      dispatch(push(path))
+    }
   };
 }
 

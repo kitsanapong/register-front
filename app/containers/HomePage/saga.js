@@ -10,7 +10,7 @@ export function* LogoutSaga(action) {
   yield put(LogoutRequest())
   try {
     const url = LOGOUT_URL
-    const option = POSTOption(action.payload)
+    const option = GETOption(action.payload)
     yield call(request, url, option)
     yield put(LogoutSucceed())
   }
